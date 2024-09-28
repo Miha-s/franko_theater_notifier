@@ -29,11 +29,13 @@ func main() {
 	startFactory := usecases.StartUsecaseFactory{}
 	subscribeFactory := usecases.NewSubscribeUsecaseFactory(users_repository)
 	unsubscribeFactory := usecases.NewUnsubscribeUsecaseFactory(users_repository)
+	helpFactory := usecases.HelpUsecaseFactory{}
 	invalidCommandFactory := usecases.InvalidCommandUsecaseFactory{}
 
 	messagesController.RegisterUsecaseFactory(&startFactory)
 	messagesController.RegisterUsecaseFactory(subscribeFactory)
 	messagesController.RegisterUsecaseFactory(unsubscribeFactory)
+	messagesController.RegisterUsecaseFactory(&helpFactory)
 	messagesController.RegisterInvalidCommandFactory(&invalidCommandFactory)
 
 	updates := bot.SetUpUpdates()

@@ -25,9 +25,7 @@ type StartUsecase struct {
 
 func (u *StartUsecase) Handle(update *tgbotapi.Update) (tgbotapi.Chattable, commandscontroller.Status) {
 	message := update.Message
-	introText := "Hello, " + message.From.UserName + "!\n" +
-		"This bot is made to monitor any changes on https://ft.org.ua/performances/konotopska-vidma page. \n" +
-		"So in case you want to buy tickets, you'll get a notification as soon as any update will have on the page"
+	introText := "Hello, " + message.From.UserName + "!\n" + HelpMessage()
 	mes := message_constructor.MakeTextMessage(u.chatID, introText)
 	return &mes, commandscontroller.Finished
 }
