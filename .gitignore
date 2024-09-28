@@ -1,0 +1,9 @@
+.vscode/
+.idea/
+
+vendor/
+
+main
+telegram-weather-svc
+
+.env.local
